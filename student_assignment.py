@@ -29,7 +29,10 @@ gpt_config = get_model_configuration(gpt_chat_version)
 # the variables shared by hw01 to hw03
 
 examples = [
-
+    {"input":"今年台灣1月紀念日有哪些?", 
+     "output":"""{"Result": [{"date": "2024-01-01","name": "元旦"}]}"""},
+    {"input":"""根據先前的節日清單，這個節日{"date": "01-01", "name": "元旦"}是否有在該月份清單？""", 
+     "output":"""{"Result":{"add": false, "reason": "元旦已包含在一月的節日清單中"}"""},
     {"input":"今年台灣10月紀念日有哪些?", 
      "output":"""{"Result": [{"date": "2024-10-10","name": "國慶日"}]}"""},
     {"input":"""根據先前的節日清單，這個節日{"date": "10-31", "name": "蔣公誕辰紀念日"}是否有在該月份清單？""", 
@@ -202,8 +205,8 @@ def format_response_as_json(response):
  
 
 #print(json.loads(generate_hw01("2024年台灣10月紀念日有哪些?")))
-#print(json.loads(generate_hw02("列出台灣4月的紀念日")))
-#print(json.loads(generate_hw03("台灣9月的紀念日有哪些", '根據先前的節日清單，這個節日{"date": "9-1", "name": "XX紀念日"}是否有在該月份清單？')))
+#print(json.loads(generate_hw02("2024年台灣10月紀念日有哪些?")))
+#print(json.loads(generate_hw03("2024年台灣10月紀念日有哪些?", '根據先前的節日清單，這個節日{"date": "10-31", "name": "蔣公誕辰紀念日"}是否有在該月份清單？')))
 #print(json.loads(generate_hw04("請問中華台北的積分是多少?")))
 
 
